@@ -1,0 +1,80 @@
+version: "3.9"
+
+
+networks:
+  5g-core:
+    external: true
+    name: 5g-net
+
+services:
+  ue:
+    build: ./ue
+    container_name: ue
+    ports:
+      - "5000:5000"
+    networks:
+      - 5g-core
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+    restart: unless-stopped
+
+  gnb:
+    build: ./gnb
+    container_name: gnb
+    networks:
+      - 5g-core
+    ports:
+      - "5001:5001"
+    depends_on:
+      - ue
+      - amf
+
+  amf:
+    build: ./amf
+    container_name: amf
+    networks:
+      - 5g-core
+    ports:
+      - "5002:5002"
+    depends_on:
+      - ausf
+      - smf
+
+  ausf:
+    build: ./ausf
+    container_name: ausf
+    networks:
+      - 5g-core
+    ports:
+      - "5003:5003"
+    depends_on:
+      - udm
+
+  udm:
+    build: ./udm
+    container_name: udm
+    networks:
+      - 5g-core
+    ports:
+      - "5004:5004"
+
+  smf:
+    build: ./smf
+    container_name: smf
+    networks:
+      - 5g-core
+    ports:
+      - "5005:5005"
+    depends_on:
+      - upf
+
+  upf:
+    build: ./upf
+    container_name: upf
+    networks:
+      - 5g-core
+    ports:
+      - "5006:5006"

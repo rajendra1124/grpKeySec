@@ -1,0 +1,52 @@
+ausf  |  * Serving Flask app 'ausf'
+ausf  |  * Debug mode: off
+amf   |  * Serving Flask app 'amf'
+amf   |  * Debug mode: off
+amf   | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+amf   |  * Running on all addresses (0.0.0.0)
+amf   |  * Running on http://127.0.0.1:5002
+amf   |  * Running on http://192.168.100.6:5002
+amf   | [33mPress CTRL+C to quit[0m
+upf   |  * Serving Flask app 'upf'
+smf   |  * Serving Flask app 'smf'
+smf   |  * Debug mode: off
+smf   | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ausf  | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ausf  |  * Running on all addresses (0.0.0.0)
+ausf  |  * Running on http://127.0.0.1:5003
+ausf  |  * Running on http://192.168.100.5:5003
+ausf  | [33mPress CTRL+C to quit[0m
+smf   |  * Running on all addresses (0.0.0.0)
+smf   |  * Running on http://127.0.0.1:5005
+smf   |  * Running on http://192.168.100.4:5005
+smf   | [33mPress CTRL+C to quit[0m
+udm   |  * Serving Flask app 'udm'
+udm   |  * Debug mode: off
+udm   | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+udm   |  * Running on all addresses (0.0.0.0)
+udm   |  * Running on http://127.0.0.1:5004
+udm   |  * Running on http://192.168.100.3:5004
+gnb   |  * Serving Flask app 'gnb'
+gnb   |  * Debug mode: off
+gnb   | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+gnb   |  * Running on all addresses (0.0.0.0)
+gnb   |  * Running on http://127.0.0.1:5001
+gnb   |  * Running on http://192.168.100.7:5001
+gnb   | [33mPress CTRL+C to quit[0m
+upf   |  * Debug mode: off
+upf   | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+upf   |  * Running on all addresses (0.0.0.0)
+upf   |  * Running on http://127.0.0.1:5006
+upf   |  * Running on http://192.168.100.2:5006
+upf   | [33mPress CTRL+C to quit[0m
+udm   | [33mPress CTRL+C to quit[0m
+[Kue exited with code 0
+[Kue exited with code 0
+[Kue exited with code 0
+[Kue exited with code 0
+[Kgnb exited with code 137
+[Kamf exited with code 137
+[Ksmf exited with code 137
+[Kausf exited with code 137
+[Kupf exited with code 137
+[Kudm exited with code 137
