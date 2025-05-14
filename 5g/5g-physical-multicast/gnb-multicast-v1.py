@@ -1,6 +1,6 @@
 import random
 import time
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import List, Dict
 import logging
 
@@ -14,6 +14,7 @@ class UE:
     rrc_state: str  # "IDLE", "CONNECTED"
     g_rnti: int  # Group RNTI for multicast
     last_ack: bool  # Last transmission ACK/NACK
+    received_packet_ids: List[int] = field(default_factory=list)
 
 @dataclass
 class MulticastPacket:
@@ -89,6 +90,8 @@ class PHYLayer:
             success = random.random() < self.channel_reliability
             results[ue.ue_id] = success
             ue.last_ack = success
+            if success:
+                ue.received_packet_ids.append(packet.packet_id)
             status = "ACK" if success else "NACK"
             logging.info(f"PHY: UE {ue.ue_id} received packet {packet.packet_id} -> {status}")
         return results
@@ -147,6 +150,17 @@ class GNBSimulator:
             time.sleep(1)  # Simulate slot timing
             logging.info("-" * 50)
 
+        # Verification steps
+        logging.info("Verification steps:")
+        for ue in sorted(self.rrc.ues.values(), key=lambda x: x.ue_id):
+            if ue.g_rnti == self.rrc.group_g_rnti:
+                logging.info(f"Group UE {ue.ue_id} received packets: {ue.received_packet_ids}")
+            else:
+                if len(ue.received_packet_ids) == 0:
+                    logging.info(f"Non-group UE {ue.ue_id} did not receive any packets, as expected.")
+                else:
+                    logging.error(f"Non-group UE {ue.ue_id} received packets: {ue.received_packet_ids}, which should not happen.")
+
 if __name__ == "__main__":
     gnb = GNBSimulator()
-    gnb.run_simulation(num_packets=100)  # Send 3 multicast packets
+    gnb.run_simulation(num_packets=10)  # Send 3 multicast packets
