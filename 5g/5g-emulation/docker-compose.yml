@@ -1,0 +1,61 @@
+version: '3.8'
+
+services:
+  amf:
+    build: ./amf
+    networks:
+      core:
+        ipv4_address: 192.168.0.2
+
+  ausf:
+    build: ./ausf
+    networks:
+      core:
+        ipv4_address: 192.168.0.3
+  udm:
+    build: ./udm
+    networks:
+      core:
+        ipv4_address: 192.168.0.4
+  upf:
+    build: ./upf
+    cap_add: 
+      - NET_ADMIN
+      - SYS_MODULE
+    privileged: true
+    networks:
+      core:
+        ipv4_address: 192.168.0.5
+
+  gnb:
+    build: ./gnb
+    depends_on: [amf]
+    cap_add: 
+      - NET_ADMIN
+      - SYS_MODULE
+    privileged: true
+    networks:
+      access:
+          ipv4_address: 10.0.0.10
+      core:
+          ipv4_address: 192.168.0.10
+
+  ue:
+    build: ./ue
+    depends_on: [gnb]
+    cap_add: ["NET_ADMIN"]
+    networks: 
+      access:
+        ipv4_address: 10.0.0.5
+
+networks:
+  access:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.0.0.0/24
+  core:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.0.0/24
