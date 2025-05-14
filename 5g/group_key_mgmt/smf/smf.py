@@ -1,5 +1,8 @@
 from flask import Flask, request, jsonify
 import requests
+import os
+import random
+
 
 app = Flask(__name__)
 
@@ -10,6 +13,11 @@ class SMF:
         self.sessions = {}
 
     def establish_session(self, session_request):
+        # Add GTP tunnel creation
+        os.system("sudo ip link add gtp0 type gtp")
+        os.system("sudo ip addr add 10.10.0.1/24 dev gtp0")
+        os.system("sudo ip link set gtp0 up")
+        
         print("[SMF] Establishing user plane session")
         ue_id = session_request['ue_id']
         k_gnb = session_request['k_gnb']
@@ -30,8 +38,14 @@ class SMF:
         }
         requests.post(f"{UPF_ADDRESS}/configure", json=upf_request)
         
-        return {"status": "session_established"}
-
+        # return {"status": "session_established"}
+        # Configure UE IP address
+        ue_ip = f"10.10.0.{random.randint(10,254)}"
+        return {
+            "status": "session_established",
+            "ue_ip": ue_ip,
+            "dns": "8.8.8.8"
+            }
     def derive_key(self, parent_key, key_name):
         return f"{key_name}_derived_from_{parent_key[:10]}"
 
