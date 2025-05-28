@@ -1,0 +1,44 @@
+5G MULTICAST VS UNICAST SIMULATION REPORT
+==========================================
+
+SIMULATION PARAMETERS:
+- Carrier Frequency: 3.5 GHz
+- Total Resource Blocks: 100
+- Subcarrier Spacing: 15 kHz
+- Maximum UEs Tested: 100
+- Monte Carlo Iterations: 10
+
+KEY FINDINGS:
+-------------
+
+1. BANDWIDTH EFFICIENCY:
+   - Multicast achieves 90.0% bandwidth savings at maximum load
+   - Maximum RBs used (Unicast): 100
+   - Maximum RBs used (Multicast): 10
+
+2. LATENCY PERFORMANCE:
+   - Average Unicast Latency: 29.56 ms
+   - Average Multicast Latency: 2.21 ms
+   - Latency Improvement: 92.5%
+
+3. SCALABILITY:
+   - Unicast Resource Utilization: 100.0%
+   - Multicast Resource Utilization: 10.0%
+
+4. NETWORK CONGESTION:
+   - Multicast shows better scalability with increasing UEs
+   - Lower resource utilization reduces network congestion
+   - More predictable latency patterns in multicast
+
+RECOMMENDATIONS:
+---------------
+- Use multicast for content delivery to multiple UEs
+- Implement Group RNTI allocation for efficient resource sharing
+- Consider hybrid approach for mixed traffic scenarios
+- Monitor SINR to optimize group formations
+
+Generated Files:
+- multicast_vs_unicast_comparison.png/.fig
+- network_congestion_analysis.png/.fig
+- simulation_results.mat
+- detailed_results.xlsx
