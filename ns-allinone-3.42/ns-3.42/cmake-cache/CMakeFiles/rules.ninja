@@ -7138,6 +7138,25 @@ rule CXX_EXECUTABLE_LINKER__wifi-eht-network_default
 #############################################
 # Rule for compiling CXX files.
 
+rule CXX_COMPILER__scratch_ip-multicastGrokv3_default
+  depfile = $DEP_FILE
+  deps = gcc
+  command = /usr/bin/ccache /usr/bin/c++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
+  description = Building CXX object $out
+
+
+#############################################
+# Rule for linking CXX executable.
+
+rule CXX_EXECUTABLE_LINKER__scratch_ip-multicastGrokv3_default
+  command = $PRE_LINK && /usr/bin/c++ $FLAGS $LINK_FLAGS $in -o $TARGET_FILE $LINK_PATH $LINK_LIBRARIES && $POST_BUILD
+  description = Linking CXX executable $TARGET_FILE
+  restat = $RESTAT
+
+
+#############################################
+# Rule for compiling CXX files.
+
 rule CXX_COMPILER__scratch_ip_multicast_default
   depfile = $DEP_FILE
   deps = gcc
@@ -7168,6 +7187,25 @@ rule CXX_COMPILER__scratch_ip_multicastv1_default
 # Rule for linking CXX executable.
 
 rule CXX_EXECUTABLE_LINKER__scratch_ip_multicastv1_default
+  command = $PRE_LINK && /usr/bin/c++ $FLAGS $LINK_FLAGS $in -o $TARGET_FILE $LINK_PATH $LINK_LIBRARIES && $POST_BUILD
+  description = Linking CXX executable $TARGET_FILE
+  restat = $RESTAT
+
+
+#############################################
+# Rule for compiling CXX files.
+
+rule CXX_COMPILER__scratch_ip_multicastv2_default
+  depfile = $DEP_FILE
+  deps = gcc
+  command = /usr/bin/ccache /usr/bin/c++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
+  description = Building CXX object $out
+
+
+#############################################
+# Rule for linking CXX executable.
+
+rule CXX_EXECUTABLE_LINKER__scratch_ip_multicastv2_default
   command = $PRE_LINK && /usr/bin/c++ $FLAGS $LINK_FLAGS $in -o $TARGET_FILE $LINK_PATH $LINK_LIBRARIES && $POST_BUILD
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT

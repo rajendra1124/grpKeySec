@@ -6,8 +6,10 @@ cmake_policy(SET CMP0009 NEW)
 file(GLOB NEW_GLOB LIST_DIRECTORIES true "/home/dwijesek/git/ns-allinone-3.42/ns-3.42/scratch/**")
 set(OLD_GLOB
   "/home/dwijesek/git/ns-allinone-3.42/ns-3.42/scratch/CMakeLists.txt"
+  "/home/dwijesek/git/ns-allinone-3.42/ns-3.42/scratch/ip-multicastGrokv3.cc"
   "/home/dwijesek/git/ns-allinone-3.42/ns-3.42/scratch/ip_multicast.cc"
   "/home/dwijesek/git/ns-allinone-3.42/ns-3.42/scratch/ip_multicastv1.cc"
+  "/home/dwijesek/git/ns-allinone-3.42/ns-3.42/scratch/ip_multicastv2.cc"
   "/home/dwijesek/git/ns-allinone-3.42/ns-3.42/scratch/nested-subdir"
   "/home/dwijesek/git/ns-allinone-3.42/ns-3.42/scratch/phy_multicast.cc"
   "/home/dwijesek/git/ns-allinone-3.42/ns-3.42/scratch/phy_multicast_new.cc"
@@ -23,8 +25,10 @@ endif()
 # single_source_file_scratches at scratch/CMakeLists.txt:77 (file)
 file(GLOB NEW_GLOB LIST_DIRECTORIES true "/home/dwijesek/git/ns-allinone-3.42/ns-3.42/scratch/[^.]*.cc")
 set(OLD_GLOB
+  "/home/dwijesek/git/ns-allinone-3.42/ns-3.42/scratch/ip-multicastGrokv3.cc"
   "/home/dwijesek/git/ns-allinone-3.42/ns-3.42/scratch/ip_multicast.cc"
   "/home/dwijesek/git/ns-allinone-3.42/ns-3.42/scratch/ip_multicastv1.cc"
+  "/home/dwijesek/git/ns-allinone-3.42/ns-3.42/scratch/ip_multicastv2.cc"
   "/home/dwijesek/git/ns-allinone-3.42/ns-3.42/scratch/phy_multicast.cc"
   "/home/dwijesek/git/ns-allinone-3.42/ns-3.42/scratch/phy_multicast_new.cc"
   "/home/dwijesek/git/ns-allinone-3.42/ns-3.42/scratch/scratch-simulator.cc"
